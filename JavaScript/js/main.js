@@ -70,5 +70,5 @@ else if(sueldoFinal===0){
             continue;
         }   
         break
-    }   
+    }
 }
