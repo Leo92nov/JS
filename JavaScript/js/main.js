@@ -10,11 +10,15 @@ while (true){
     }
 continue
 }
+let ahorrosPasados = "265.5";
+ahorrosPasados=parseFloat(ahorrosPasados)
 
 let sueldoBruto = prompt("ingrese su sueldo");
+sueldoBruto=parseFloat(sueldoBruto)
 
 let sueldoNeto= (sueldoBruto - sueldoBruto * 0.21);
-    parseFloat(sueldoNeto);
+sueldoNeto=parseFloat(sueldoNeto);
+
 console.log("Su sueldo despues de impuestos fijos es de $" + sueldoNeto);
 
 let impuestoGas= prompt("Ingrese el valor de la factura de gas")
@@ -29,14 +33,16 @@ function sumaImpuestos(impuestoGas, impuestoLuz, impuestoTgi) {
     return impuestoGas + impuestoLuz + impuestoTgi;
 }
 let totalImpuestos = sumaImpuestos(impuestoGas, impuestoLuz, impuestoTgi)
-parseFloat(totalImpuestos)
+totalImpuestos=parseFloat(totalImpuestos)
 console.log("La suma de los impuestos variables es $" + totalImpuestos);
 
 let sueldoFinal= (sueldoNeto - totalImpuestos)
-parseFloat(sueldoFinal)
+sueldoFinal=parseFloat(sueldoFinal)
 
 console.log("Restando todos sus gastos, su sueldo es de $" + sueldoFinal);
 
+let resultadoAhorro=0;
+resultadoAhorro=parseFloat(resultadoAhorro)
 if(sueldoFinal < 0){
     alert("Cuidado, estás perdiendo dinero!!!");
 }
@@ -48,18 +54,23 @@ else if(sueldoFinal===0){
     sueldoAhorro=parseFloat(sueldoAhorro)
     switch (sueldoAhorro) {
         case 1:
+            resultadoAhorro =(sueldoFinal * 0.1)
             console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.1) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.1) + " restantes");
             break;
         case 2:
+            resultadoAhorro =(sueldoFinal * 0.2)
             console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.2) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.2) + " restantes");
             break;
         case 3:
+            resultadoAhorro =(sueldoFinal * 0.3)
             console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.3) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.3) + " restantes");
             break;
         case 4:
+            resultadoAhorro =(sueldoFinal * 0.4)
             console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.4) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.4) + " restantes");
             break;
         case 5:
+            resultadoAhorro =(sueldoFinal * 0.5)
             console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.5) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.5) + " restantes");
             break;
         case 6:
@@ -72,3 +83,9 @@ else if(sueldoFinal===0){
         break
     }
 }
+function sumaAhorros(resultadoAhorro, ahorrosPasados) {
+    return resultadoAhorro + ahorrosPasados;
+}
+let totalAhorros = sumaAhorros(resultadoAhorro, ahorrosPasados)
+totalAhorros= parseFloat(totalAhorros)
+console.log("Sus ahorros actualizados suman un total de $" + (totalAhorros));
