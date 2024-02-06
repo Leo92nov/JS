@@ -16,7 +16,7 @@ function loggear() {
 }
 ingreso = loggear();
 if(!ingreso){
-   alert ("Haz superado el numero de intentos de ionicio de sesión, por favor intentalo nuevamente mas tarde")
+   alert ("Haz superado el número de intentos de inicio de sesión, por favor intentalo nuevamente mas tarde")
 }else{
     alert("Bienvenido Leonardo")
     let ahorrosPasados = "265.5";
