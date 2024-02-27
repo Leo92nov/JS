@@ -19,7 +19,7 @@ if(!ingreso){
    alert ("Haz superado el número de intentos de inicio de sesión, por favor intentalo nuevamente mas tarde")
 }else{
     alert("Bienvenido Leonardo")
-    let ahorrosPasados = "265.5";
+    let ahorrosPasados = "265000.5";
     ahorrosPasados=parseFloat(ahorrosPasados)
 
     let sueldoBruto = prompt("ingrese su sueldo");
@@ -98,4 +98,21 @@ if(!ingreso){
     let totalAhorros = sumaAhorros(resultadoAhorro, ahorrosPasados)
     totalAhorros= parseFloat(totalAhorros)
     console.log("Sus ahorros actualizados suman un total de $" + (totalAhorros));
+}
+
+const usuario1 ={
+    nombre:"Leonardo",
+    apellido:"Nonino",
+    email: "lnonino92@gmail.com",
+    usuario: "36765496",
+    pass: "starplatinum",
+    telefono: "3412562095"
+}
+const usuario2 ={
+    nombre:"Vecente",
+    apellido:"Viloni",
+    email: "metal@gmail.com",
+    usuario: "16765496",
+    pass: "plusultra",
+    telefono: "3416562095"
 }
