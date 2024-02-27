@@ -14,7 +14,7 @@ const cajaDePuntas = [
     ]
     
     const cedearsEnCartera = [
-        {id: 3, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
         {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
         {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
         {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
@@ -42,7 +42,13 @@ if(!ingreso){
    alert ("Haz superado el número de intentos de inicio de sesión, por favor intentalo nuevamente mas tarde")
 }else{
     alert("Bienvenido Leonardo")
-    switch (prompt("¿Que operacion desea realizar? \n 1-Compra de CEDEAR \n 2-Venta de CEDEAR \n 3-Ingreso de sueldo y calculadora \n 4-Extraccion de dinero de cuenta comitente ")) {
+    
+    let opcion;
+
+    do {
+        opcion = prompt("¿Que operacion desea realizar? \n 1-Compra de CEDEAR \n 2-Venta de CEDEAR \n 3-Ingreso de sueldo y calculadora \n 4-Extraccion/Ingreso de dinero de cuenta comitente \n 5-Salir ")
+    
+    switch (opcion) {
         case "1":
             /* COMPRAR */
                 function encontrarCedear(arr, nombre) {
@@ -101,32 +107,40 @@ if(!ingreso){
             }
 
             let cedearProcesadoVender = venderCedear(encontradoVender)
-
+            
             let indexCedearsEnCartera = cedearsEnCartera.findIndex(item => item.ticker === cedearProcesadoVender.encontradoVender.ticker);
-
-            if (indexCedearsEnCartera !== -1 && cedearProcesadoVender.cantidad <= cedearsEnCartera[indexCedearsEnCartera].cantidad) {
-                cedearsEnCartera[indexCedearsEnCartera].cantidad -= cedearProcesadoVender.cantidad;
-                let indexCajaDePuntas = cajaDePuntas.findIndex(item => item.ticker === cedearProcesadoVender.encontradoVender.ticker);
+            if (indexCedearsEnCartera !== -1) {
+                console.log("Cantidad de CEDEARs en cartera antes de la venta:", cedearsEnCartera[indexCedearsEnCartera].cantidad);
+                console.log("Cantidad de CEDEARs a vender:", cedearProcesadoVender.cantidad);
+                if (indexCedearsEnCartera !== -1 && cedearProcesadoVender.cantidad <= cedearsEnCartera[indexCedearsEnCartera].cantidad) {
+                    let cedearsYaRestados = cedearsEnCartera[indexCedearsEnCartera].cantidad - cedearProcesadoVender.cantidad;
+                    console.log(cedearsYaRestados);
+                    let indexCajaDePuntas = cajaDePuntas.findIndex(item => item.ticker === cedearProcesadoVender.encontradoVender.ticker);
                 
-                if (indexCajaDePuntas !== -1) {
-                    cajaDePuntas[indexCajaDePuntas].cantidad += cedearProcesadoVender.cantidad;
-                } else {
-                    cajaDePuntas.push({
-                        id: cedearProcesadoVender.encontradoVender.id,
-                        ticker: cedearProcesadoVender.encontradoVender.ticker,
-                        precio: cedearProcesadoVender.encontradoVender.precio,
-                        cantidad: cedearProcesadoVender.cantidad
-                    });
-                }
+                    if (indexCajaDePuntas !== -1) {
+                        cajaDePuntas[indexCajaDePuntas].cantidad += cedearProcesadoVender.cantidad;
+                    } else {
+                        cajaDePuntas.push({
+                            id: cedearProcesadoVender.encontradoVender.id,
+                            ticker: cedearProcesadoVender.encontradoVender.ticker,
+                            precio: cedearProcesadoVender.encontradoVender.precio,
+                            cantidad: cedearProcesadoVender.cantidad
+                        });
+                    }
                     
-                alert("La venta fue exitosa")
-                cedearsEnCartera[index].cantidad += cajaDePuntas.cantidad;
+                    alert("La venta fue exitosa")
+                    cedearsEnCartera[indexCedearsEnCartera].cantidad -= cedearProcesadoVender.cantidad;
+                    ahorrosPasados = parseFloat(ahorrosPasados + cedearProcesadoVender.cedearCosto)
+                    console.log(ahorrosPasados);
+                }
+                else{
+                    alert("No dispones de los cedears suficientes")
+                }
+                console.log(cedearsEnCartera);
+                console.log(cajaDePuntas);
+            } else {
+                alert("El cedear que deseas vender no está en tu cartera.");
             }
-            else{
-                alert("No dispones de los cedears suficientes")
-            }
-            console.log(cedearsEnCartera);
-            console.log(cajaDePuntas);
         break;
 
 
@@ -216,9 +230,26 @@ if(!ingreso){
             break;
 
         case "4":
+         let operacion = prompt ("Usted dispone de $" + ahorrosPasados + " en su cuenta, si desea ingresar mas diunero escriba ¨Ingreso¨. Si desea realizar una extraccion escriba ¨Extraccion¨")
+            if (operacion === "ingreso"){
+                alert("Envie dinero desde su cuenta bancaria a la siguiente cuenta ¨1430001713021232020013¨")
+            }else if (operacion === "extraccion"){
+                extraccion = prompt("usted dispone de $" + ahorrosPasados + " ¿cuanto desea retirar?")
+                if(extraccion > ahorrosPasados){
+                    alert("No dispone de esa cantidad")
+                }else{
+                  ahorrosPasados = ahorrosPasados - extraccion
+                    alert("Su dinero ha sido correctamente enviado. Su saldo restante es de $" + ahorrosPasados + ".")
+                }
+            }else{
+                alert("Opccion no valida")
+            }
 
+        break
         default: alert("opcion no valida")
-            
+        
+        case "5":
+            alert("Saludos") 
     }
-    
+} while (opcion !== "5");
 }
