@@ -1,8 +1,56 @@
-let usuario= "36765496";
-let pass = "starplatinum";
+let ingresoUsuario;
+let ingresoPassword;
 let intentos = 3;
-let ingreso=false
-let ahorrosPasados = parseFloat("265000.5");
+let ingreso = false;
+let exito
+let usuarioLoggeado = null
+const usuarios = [
+    {nombre: "Leonardo", nombreUsuario: "36765496", contraseña: "starplatinum", ahorrosPasados: 265000,  cedearsEnCartera:  [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
+    ] },
+    {nombre: "Leonidas", nombreUsuario: "papitomirey", contraseña: "xerxes", ahorrosPasados: 2650000, cedearsEnCartera: [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
+    ]},
+    {nombre: "Rolinga", nombreUsuario: "pepeluis", contraseña: "vaporlaciudad", ahorrosPasados: 285000, cedearsEnCartera: [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},]},
+
+    {nombre: "Tonatiw", nombreUsuario: "reysol", contraseña: "sacrificio", ahorrosPasados: 2650000, cedearsEnCartera: [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},]},
+
+    {nombre: "Otto", nombreUsuario: "acorazado", contraseña: "bismarck", ahorrosPasados: 25000, cedearsEnCartera: [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 2},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 0},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 8},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 12},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 4},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 1},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 5},]},
+]
+
 const cajaDePuntas = [
     {id: 1, ticker: "KO", precio: 1500, cantidad: 5000},
     {id: 2, ticker:"PFE", precio: 1800, cantidad: 5000},
@@ -13,36 +61,29 @@ const cajaDePuntas = [
     {id: 7, ticker: "TSLA", precio: 3000, cantidad: 5000},
     ]
     
-    const cedearsEnCartera = [
-        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
-        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
-        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
-        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
-        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
-        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
-        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
-    ]
+    document.getElementById('btnEnviar').addEventListener('click', () => {
+        let ingresoUsuario = document.getElementById('name').value;
+        let ingresoPassword = document.getElementById('password').value;
     
+        function loggear() {
+            for (let i = 0; i < usuarios.length; i++) {
+                if (ingresoUsuario === usuarios[i].nombreUsuario && ingresoPassword === usuarios[i].contraseña) {
+                    alert("Bienvenido " + usuarios[i].nombre);
+                    usuarioLoggeado= usuarios[i]
+                    return usuarioLoggeado;
+                    
+                }
 
-function loggear() {
-    for (let i = 0; i<3; i++) {
-       let ingresoUsuario = prompt("Ingrese su DNI");
-       let ingresoPassword = prompt("Ingrese su contraseña");
-       if(ingresoUsuario== usuario && ingresoPassword ==pass){
-           return true;
-       }else{
-           alert("Usuario o contraseña incorrecta. Intentos restantes: " + (intentos - i -1 ));
-       }
-   }
-   return false;
-}
-ingreso = loggear();
+            }
+            alert("Usuario o contraseña incorrecta");
+            return usuarioLoggeado;
+        }
+       usuarioLoggeado= loggear()
+       console.log(usuarioLoggeado);
+       return usuarioLoggeado
+    });
 
-if(!ingreso){
-   alert ("Haz superado el número de intentos de inicio de sesión, por favor intentalo nuevamente mas tarde")
-}else{
-    alert("Bienvenido Leonardo")
-    
+
     let opcion;
 
     do {
@@ -50,7 +91,6 @@ if(!ingreso){
     
     switch (opcion) {
         case "1":
-            /* COMPRAR */
                 function encontrarCedear(arr, nombre) {
                     return arr.find((el) => el.ticker.includes(nombre));
                 }
@@ -89,7 +129,6 @@ if(!ingreso){
         
 
         case "2":
-         /*    VENDER */
          console.log(cedearsEnCartera);
 
             function encontrarCedear(arr, nombre) {
@@ -252,4 +291,3 @@ if(!ingreso){
             alert("Saludos") 
     }
 } while (opcion !== "5");
-}

@@ -1,0 +1,325 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Sans;
+  src: url(../fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #1b1b1b;
+}
+
+.body {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  background-color: #1b1b1b;
+}
+
+.header {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  background-color: #1b1b1b;
+  height: 4rem;
+  width: 100%;
+  text-decoration: none;
+  z-index: 1;
+}
+.header .navbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 5rem;
+  list-style: none;
+}
+.header .navbar .nav_links {
+  list-style: none;
+  font-family: sans;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1rem;
+  color: #f9f9f8;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navbar .nav_links :hover {
+  color: #d3e304;
+  transform: scale(1.1);
+}
+.header .navbar .nav_links a {
+  text-decoration: none;
+  color: inherit;
+}
+.header .navbar .logo {
+  left: 0;
+  margin-left: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  height: 5rem;
+  display: block;
+}
+
+.formulario {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1b1b1b;
+  padding: 20px;
+  width: 20rem;
+  max-width: 18rem;
+  height: 25rem;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px 1px rgba(211, 227, 4, 0.5);
+  text-align: center;
+}
+
+.formulario__titulo {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.form__paragraph {
+  font-weight: 300;
+}
+
+.form__link {
+  font-weight: 400;
+  color: #d3e304;
+}
+
+.div__form {
+  margin-top: 1em;
+  display: grid;
+  gap: 2.5em;
+}
+
+.form__group {
+  position: relative;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+.form__input {
+  width: 100%;
+  background: none;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 0.01px solid #303030;
+}
+
+.form__label {
+  color: #ffffff;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transform: tranform 0.5s, #d3e304 0.3s;
+}
+
+.form__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #d3e304;
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform 0.4s;
+}
+
+.form__input:focus ~ .form__line,
+.form__input:not(:placeholder-shown) ~ .form__line {
+  transform: scale(1.05);
+}
+
+.form__submit {
+  background-color: #d3e304;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.form__link {
+  color: #f9f9f8;
+  text-decoration: none;
+}
+
+.form__link:hover {
+  color: #d3e304;
+  transform: scale(1.1);
+}
+
+.position {
+  position: absolute;
+  margin-top: 20rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider {
+  background-image: url(../assets/img/WS.jpg.jpg);
+  background-size: cover;
+  height: 120%;
+  width: 100%;
+  animation: animate 50s infinite;
+  opacity: 0.5;
+}
+
+@keyframes animate {
+  10% {
+    background-image: url(../assets/img/RealEstate.jpg.jpg);
+    background-size: cover;
+  }
+  20% {
+    background-image: url(../assets/img/DJ.jpg.png);
+    background-size: cover;
+  }
+  30% {
+    background-image: url(../assets/img/ahorros.jpeg);
+    background-size: cover;
+  }
+  40% {
+    background-image: url(../assets/img/indices.jpg.webp);
+    background-size: cover;
+  }
+  50% {
+    background-image: url(../assets/img/Fintech.jpg.webp);
+    background-size: cover;
+  }
+  60% {
+    background-image: url(../assets/img/Inve.jpg.webp);
+    background-size: cover;
+  }
+  10% {
+    background-image: url(../assets/img/indices2.jpg.jpg);
+    background-size: cover;
+  }
+  70% {
+    background-image: url(../assets/img/inversionBTC.jpeg);
+    background-size: cover;
+  }
+  80% {
+    background-image: url(../assets/img/rentabilidad.jpg);
+    background-size: cover;
+  }
+  90% {
+    background-image: url(../assets/img/RealEstate.jpg.jpg);
+    background-size: cover;
+  }
+  100% {
+    background-image: url(../assets/img/RealEstate.jpg.jpg);
+    background-size: cover;
+  }
+}
+.formularioCalculadora {
+  margin-top: 6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1b1b1b;
+  padding: 20px;
+  width: 40rem;
+  max-width: 40rem;
+  height: 46rem;
+  border-radius: 12px;
+  box-shadow: 0px 10px 10px 1px rgba(211, 227, 4, 0.5);
+  text-align: center;
+}
+
+.formulario__tituloCalculadora {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.form__paragraphCalculadora {
+  font-weight: 300;
+}
+
+.form__linkCalculadora {
+  font-weight: 400;
+  color: #d3e304;
+}
+
+.div__form {
+  margin-top: 1em;
+  display: grid;
+  gap: 2.5em;
+}
+
+.form__groupCalculadora {
+  position: relative;
+  color: #ffffff;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+.form__inputCalculadora {
+  width: 100%;
+  background: none;
+  color: #ffffff;
+  height: 1.15rem;
+  font-size: 0.8rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 0.01px solid #303030;
+}
+
+.form__labelCalculadora {
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dos columnas con un ancho mínimo de 200px */
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transform: tranform 0.5s, #d3e304 0.3s;
+}
+
+.form__lineCalculadora {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #d3e304;
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform 0.4s;
+}
+
+.form__inputCalculadora:focus ~ .form__lineCalculadora,
+.form__inputCalculadora:not(:placeholder-shown) ~ .form__lineCalculadora {
+  transform: scale(1.05);
+}
+
+.form__submitCalculadora {
+  background-color: #d3e304;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.form__linkCalculadora {
+  color: #f9f9f8;
+  text-decoration: none;
+}
+
+.form__linkCalculadora:hover {
+  color: #d3e304;
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=styles.css.map */
