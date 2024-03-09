@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Coder Market Broker</title>
 </head>
 <body>
     <header class="header">
         <section class="navbar">
             <nav>
                 <ul class="nav_links">
-                    <img src="" alt="" class="logo">
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="">Calculadora de Ahorros</a></li>
-                    <li><a href="">Cedears</a></li>
-                    <li><a href="">Mov Dinero</a></li>
+                    <img src="./assets/img/logocdm.png" alt="" class="logo">
+                    <li class="nav_links"><a href="./index.html">INICIO</a></li>
+                    <li class="nav_links"><a href="./pages/calculadoraAhorros.html">CALCULADORA DE AHORROS</a></li>
+                    <li class="nav_links"><a href="./pages/cedears.html">CEDEARS</a></li>
+                    <li class="nav_links"><a href="./pages/fondearCuenta.html">INGRESO/EGRESO DE DINERO</a></li>
                 </ul>
             </nav>
             <a href="" class="btn"><button></button></a>
         </section>
     </header>
-    <section class="sectionForm">
-        <h2 class="formulario__titulo">Ingrese su DNI</h2>
+    <div class="slider-container">
+        <div class="slider position" >
+            
+        </div>
+    </div>
+    <section class="section__form">
         <form action="" class="formulario">
-            <label for="nombre" class="form__nombre">Escribe tu DNI</label>
-            <input type="text" id="name" name="nombre1" placeholder="Ingrese su nombre" class="cajaNombre">
-            <div class="enviar">
-                <input id="nam" type="submit" value="Enviar" class="nombre__send" onclick="AlmacenarPlayer()">
-            </div>
+            <div class="div__form">
+                <h2 class="formulario__titulo">Inicia sesión</h2>
+                <div class="form__group">
+                    <label for="name" class="form__label">Escribe tu usuario</label>
+                    <input type="text" id="name" placeholder=" " class="form__input">
+                    <span class="form__line"></span>
+                </div>    
+                <div class="form__group">
+                    <label for="password" class="form__label">Ingrese su contraseña</label>
+                    <input type="text" id="password" placeholder=" " class="form__input">
+                    <span class="form__line"></span>
+                </div>    
+                <input id="btnIngreso" type="button" class="form__submit" value="Entrar">
+                <p class="form__paragraph"><a href="./index.html" class="form__link">¿Has olvidado tu constraseña?</a></p>
+                </div>
         </form>
     </section>
-    <script src="./js/2entrega.js"></script>
+    
+<script src="./js/cedear-3.js"></script>
+</body>
 </html>

@@ -1,82 +1,72 @@
-ahorrosPasados = 
+const usuarios = [
+    {nombre: "Leonardo", nombreUsuario: "36765496", contraseña: "starplatinum", ahorrosPasados: 265000,  cedearsEnCartera:  [
+        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
+        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
+        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
+        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
+        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
+        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
+        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
+    ] },
+]
+
+ahorrosPasados = usuarios[0].ahorrosPasados;
+console.log(ahorrosPasados);
 console.log("Su cuenta comitente dispone de $" + ahorrosPasados);
-ahorrosPasados=parseFloat(ahorrosPasados)
+ahorrosPasados=parseFloat(ahorrosPasados);
 
-let sueldoBruto = prompt("ingrese su sueldo");
-sueldoBruto=parseFloat(sueldoBruto)
-
-let sueldoNeto= (sueldoBruto - sueldoBruto * 0.21);
-sueldoNeto=parseFloat(sueldoNeto);
-
-console.log("Su sueldo despues de impuestos fijos es de $" + sueldoNeto);
-
-let impuestoGas= prompt("Ingrese el valor de la factura de gas")
-let impuestoLuz= prompt("Ingrese el valor de la factura de luz")
-let impuestoTgi= prompt("Ingrese el valor de la factura de TGI")
-
-impuestoGas = parseFloat(impuestoGas);
-impuestoLuz = parseFloat(impuestoLuz);
-impuestoTgi = parseFloat(impuestoTgi);
-
-function sumaImpuestos(impuestoGas, impuestoLuz, impuestoTgi) {
-return impuestoGas + impuestoLuz + impuestoTgi;
+let sueldoNetoCalculado;
+function sueldoNeto(sueldoBruto, gas, luz, agua, patente, seguroAutomotor, alquiler, obraSocial, tgi) {
+    return sueldoBruto - gas - luz - agua - patente - seguroAutomotor - alquiler - obraSocial - tgi;
 }
-let totalImpuestos = sumaImpuestos(impuestoGas, impuestoLuz, impuestoTgi)
-totalImpuestos=parseFloat(totalImpuestos)
-console.log("La suma de los impuestos variables es $" + totalImpuestos);
 
-let sueldoFinal= (sueldoNeto - totalImpuestos)
-sueldoFinal=parseFloat(sueldoFinal)
 
-console.log("Restando todos sus gastos, su sueldo es de $" + sueldoFinal);
+const sueldoBrutoInput = document.getElementById("sueldo");
+const gasInput = document.getElementById("gas");
+const luzInput = document.getElementById("luz");
+const aguaInput = document.getElementById("agua");
+const patenteInput = document.getElementById("patente");
+const seguroAutomotorInput = document.getElementById("seguroAutomotor");
+const alquilerInput = document.getElementById("alquiler");
+const obraSocialInput = document.getElementById("obraSocial");
+const tgiInput = document.getElementById("tgi");
 
-function sumaAhorros(resultadoAhorro, ahorrosPasados) {
-    return resultadoAhorro + ahorrosPasados;
+const btnCalcSn = document.getElementById("btnCalcSn");
+const resultadoNeto = document.getElementById("resultadoNeto")
+
+btnCalcSn.addEventListener("click", function calcularAhorro() {
+    const sueldoBruto = parseFloat(sueldoBrutoInput.value) || 0;
+    const gas = parseFloat(gasInput.value) || 0;
+    const luz = parseFloat(luzInput.value) || 0;
+    const agua = parseFloat(aguaInput.value) || 0;
+    const patente = parseFloat(patenteInput.value) || 0;
+    const seguroAutomotor = parseFloat(seguroAutomotorInput.value) || 0;
+    const alquiler = parseFloat(alquilerInput.value) || 0;
+    const obraSocial = parseFloat(obraSocialInput.value) || 0;
+    const tgi = parseFloat(tgiInput.value) || 0;
+    
+    const sueldoNetoCalculado  = sueldoNeto (sueldoBruto, gas, luz, agua, patente, seguroAutomotor, alquiler, obraSocial, tgi)
+    resultadoNeto.value = sueldoNetoCalculado
+});
+
+porcentajeValor = document.getElementById("porcentaje")
+resultadox = document.getElementById("resultadoNeto")
+function calcularSueldoNeto(sueldoBruto, gas, luz, agua, patente, seguroAutomotor, alquiler, obraSocial, tgi){
+    return (sueldoBruto - gas - luz - agua - patente - seguroAutomotor - alquiler - obraSocial - tgi)
 }
-let totalAhorros = sumaAhorros(resultadoAhorro, ahorrosPasados)
-totalAhorros= parseFloat(totalAhorros)
-console.log("Sus ahorros actualizados suman un total de $" + (totalAhorros));
 
-let resultadoAhorro=0;
-resultadoAhorro=parseFloat(resultadoAhorro)
-if(sueldoFinal < 0){
-    alert("Cuidado, estás perdiendo dinero!!!");
+function porcentuar(resultadoNeto, porcentaje) {
+
+    let reto = (resultadoNeto * porcentaje) / 100;
+    return reto;
 }
-else if(sueldoFinal===0){
-    alert("Tus gastos son iguales a tu entrada de dinero, intenta disminuirlos para poder ahorrar!")
-}else{
-    while (sueldoFinal > 0){
-        let sueldoAhorro= prompt("¿Qué porcentaje de tu excedente queres ahorrar? \n 1-10% \n 2-20% \n 3-30% \n 4-40% \n 5-50% \n 6-No quiero ahorrar")
-        sueldoAhorro=parseFloat(sueldoAhorro)
-        switch (sueldoAhorro) {
-            case 1:
-                resultadoAhorro =(sueldoFinal * 0.1)
-                console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.1) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.1) + " restantes");
-                break;
-            case 2:
-                resultadoAhorro =(sueldoFinal * 0.2)
-                console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.2) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.2) + " restantes");
-                break;
-            case 3:
-                resultadoAhorro =(sueldoFinal * 0.3)
-                console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.3) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.3) + " restantes");
-                break;
-            case 4:
-                resultadoAhorro =(sueldoFinal * 0.4)
-                console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.4) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.4) + " restantes");
-                break;
-            case 5:
-                resultadoAhorro =(sueldoFinal * 0.5)
-                console.log("Tus ahorros mensuales serán de $" + (sueldoFinal * 0.5) + " Disponiendo de $" + (sueldoFinal - sueldoFinal*0.5) + " restantes");
-                break;
-            case 6:
-                alert("Recuerda que es importante disponer de ahorros siempre que puedas permitírtelo");
-                break;
-            default:
-                alert("Opción no válida, por favor elija la cantidad que desea ahorrar");
-                continue;
-        }   
-        break
-        
-    }
-}
+
+btnInver.addEventListener("click", function() {
+    const resultadoNeto = document.getElementById("resultadoNeto").value;
+    const porcentajeInversion = document.getElementById("porcentaje").value;
+    const porcentajeValor = parseFloat(porcentajeInversion);
+   
+    const inversionCalculada = porcentuar(resultadoNeto, porcentajeValor);
+    
+    inversion.value = inversionCalculada.toFixed(2); // Redondear a 2 decimales
+});
