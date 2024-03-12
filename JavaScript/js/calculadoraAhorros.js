@@ -1,19 +1,18 @@
-const usuarios = [
-    {nombre: "Leonardo", nombreUsuario: "36765496", contraseña: "starplatinum", ahorrosPasados: 265000,  cedearsEnCartera:  [
-        {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
-        {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
-        {id: 3, ticker: "AAPL", precio: 2000, cantidad: 10},
-        {id: 4, ticker: "MSFT", precio: 2000, cantidad: 27},
-        {id: 5, ticker: "AMZN", precio: 2500, cantidad: 60},
-        {id: 6, ticker: "META", precio: 2000, cantidad: 31},
-        {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
-    ] },
-]
 
-ahorrosPasados = usuarios[0].ahorrosPasados;
+usuarioLoggeado =JSON.parse(localStorage.getItem("iniciado"))
+
+
+ahorrosPasados = usuarioLoggeado.ahorrosPasados
 console.log(ahorrosPasados);
 console.log("Su cuenta comitente dispone de $" + ahorrosPasados);
 ahorrosPasados=parseFloat(ahorrosPasados);
+
+const sueldo = document.getElementById("sueldoc");
+const boton__ahorros = document.getElementById("boton__ahorros");
+
+boton__ahorros.addEventListener("click", function traerLiquidez() {
+    sueldo.value = usuarioLoggeado.ahorrosPasados; 
+});
 
 let sueldoNetoCalculado;
 function sueldoNeto(sueldoBruto, gas, luz, agua, patente, seguroAutomotor, alquiler, obraSocial, tgi) {
@@ -21,7 +20,7 @@ function sueldoNeto(sueldoBruto, gas, luz, agua, patente, seguroAutomotor, alqui
 }
 
 
-const sueldoBrutoInput = document.getElementById("sueldo");
+
 const gasInput = document.getElementById("gas");
 const luzInput = document.getElementById("luz");
 const aguaInput = document.getElementById("agua");
@@ -35,7 +34,7 @@ const btnCalcSn = document.getElementById("btnCalcSn");
 const resultadoNeto = document.getElementById("resultadoNeto")
 
 btnCalcSn.addEventListener("click", function calcularAhorro() {
-    const sueldoBruto = parseFloat(sueldoBrutoInput.value) || 0;
+    const sueldoBruto = parseFloat(sueldo.value) || 0;
     const gas = parseFloat(gasInput.value) || 0;
     const luz = parseFloat(luzInput.value) || 0;
     const agua = parseFloat(aguaInput.value) || 0;
@@ -68,5 +67,5 @@ btnInver.addEventListener("click", function() {
    
     const inversionCalculada = porcentuar(resultadoNeto, porcentajeValor);
     
-    inversion.value = inversionCalculada.toFixed(2); // Redondear a 2 decimales
+    inversion.value = inversionCalculada.toFixed(2); 
 });

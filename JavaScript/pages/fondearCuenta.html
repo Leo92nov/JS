@@ -21,6 +21,51 @@
             <a href="" class="btn"><button></button></a>
         </section>
     </header>
-    <script src="../js/ingresoEgreso.js"></script>
+    
+    <div class="ingresoEgreso__form">
+        <section class="section__formIng">
+            <form action="" id="formularioIng" class="formularioIng">
+                <div class="div__formIng">
+                    <h2 class="formulario__tituloIng">Nuestro CBU</h2>
+                    <div class="form__groupIng">
+                        <label for="name" class="form__labelIng">Nuestro cbu en pesos</label>
+                        <p class="form__inputIng">3220001805006444990018</p>
+                        <span class="form__lineIng"></span>
+                    </div>    
+                    <div class="form__groupIng">
+                        <label for="name" class="form__labelIng">Nuestro CBU en dólares</label>
+                        <p class="form__inputIng">3220001812006444990029 </p>
+                        <span class="form__lineIng"></span>
+                    </div>    
+                </div>
+            </form>
+        </section> 
+    
+        <section class="section__formEg">
+            <form action="" id="formularioEg" class="formularioEg">
+                <div class="div__formEg">
+                    <h2 class="formulario__tituloEg">Retira dinero de tu cuenta</h2>
+                    <div class="form__groupEg">
+                    <label for="name" class="form__labelEg">Ingrese su CBU</label>
+                    <input type="text" id="nameEg" placeholder=" " class="form__inputEg">
+                    <span class="form__lineEg"></span>
+                </div>    
+                <div class="form__groupEg">
+                    <label for="name" class="form__labelEg">Elija el monto a retirar</label>
+                    <input id="btnLiqMax" type="button" class="form__submitEg" value="Liquidez Max" name="enviar">
+                    <input type="text" id="liqEg" placeholder=" asd" class="form__inputEg">
+                    <span class="form__lineEg"></span>
+                </div>    
+                <div class="form__groupEg">
+                    <label for="password" class="form__labelEg">Escriba nuevamente su contraseña</label>
+                    <input type="text" id="passwordEg" placeholder="asdg " class="form__inputEg">
+                    <span class="form__lineEg"></span>
+                </div>    
+                <input id="btnEgreso" type="button" class="form__submitEg" value="Retirar" name="enviar">
+                </div>
+            </form>
+        </section> 
+    </div>
+   <script src="../js/ingresoEgreso.js"></script> 
 </body>
 </html>

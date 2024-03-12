@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     background-color: #1b1b1b;
+    
 }
 .body{
     height: 100vh;
@@ -70,7 +71,7 @@
         padding: 20px;
         width: 20rem;
         max-width: 18rem;
-        height: 25rem;
+        height: 28rem;
         border-radius: 10px;
         box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
         text-align: center;
@@ -382,12 +383,428 @@
     margin-top: 1rem;
 }
 
-.info__cuenta{
+.info__cuenta {
+    width: calc(100% - 2rem * 2); 
+    overflow-x: hidden;
+    height: 5rem;
+    left: 1rem;
+    color: #ffffff;
+    border-radius: 15px;
+    position: relative;
+    top: 8rem;
+    box-shadow: 0px 10px 10px 5px rgb(211 227 4 / 50%);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 1rem; 
+
+}
+
+.divspan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+
+    .span__liquidez{
+        font-size: 1.5rem;
+        color: #d3e304;
+        margin-bottom: 1rem;
+    }
+    .span__comitente{
+        font-size: 1.5rem;
+        color: #d3e304;
+        margin-bottom: 1rem;
+    }
+    .span__invertido {
+        font-size: 1.5rem;
+        color: #d3e304;
+        margin-bottom: 1rem;
+    }
+
+}
+.boton__ahorros{
+    background-color: #d3e304;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+.divi_ced {
+    width: calc(100% - 2rem * 2);
+
+    left: 1rem;
+    overflow-x: hidden;
+    color: #ffffff;
+    border-radius: 15px;
+    position: relative;
+    top: 11rem;
+    box-shadow: 2px 10px 12px 10px rgba(211, 227, 4, 0.5);
+    padding: 1rem;
+    height: auto;
+}  
+
+.btnVentaCed{
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 10px;
+    background-color: #4b0000;
+    margin-right: -20rem;
+    color: #ffffff;
+}
+.btnCompraCed{
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 10px;
+    background-color: #004b04;
+    color: #ffffff;
+}
+.cadaCedear{
+    margin-top: 0.5rem;
+    max-width: 100%;
+    size: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.misinv {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    font-size: 2.5rem;
+    border-bottom: 3px solid white; 
+}
+
+.fila {
+    display: flex;
+    margin-bottom: 0;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between; 
+}
+
+
+
+.cedear {
+    padding: 0;
+    background-color: #292828;
+    height: 1rem;
+    width: 100%;
+}
+
+.pcedear {
+    background-color: #303030;
+    font-size: 1.4rem;
+    padding: 0;
+    height: 2rem;
+    width: 100%;
+}
+.pcedear2 {
+    background-color: #1b1b1b;
+    font-size: 1.4rem;
+    padding: 0;
+    height: 2rem;
+    width: 100%;
+}
+.pcedear3 {
+    background-color: #0d4d00;
+    font-size: 1.4rem;
+    padding: 0;
+    height: 2rem;
+    width: 50%;
+    border-radius: 5px;
+}
+.pcedear4{
+    background-color: #af0000;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding: 0;
+    height: 2rem;
+    width: 50%;
+}
+.bodicrearusuario {
+    background-image: url(../assets/img/bearsvsbulls.jpeg);
+    display: flex;
+    flex-direction: row;
+}
+
+.ingresoEgreso__form {
     position: relative;
-    top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    top: 24rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1b1b1b;
+    padding: 20px;
+    width: 60%;
+    max-width: 100%;
+    height: 28rem;
+    border-radius: 10px;
+    
+    text-align: center;
+}
+
+.section__formIng{
+    box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+    text-align: center; 
+    border-radius: 10px;
+    width: 20rem;
+
+}
+.formulario__tituloIng {
     color: #ffffff;
+   font-size: 2rem;
+   margin-bottom: 0.5em;
+}
+.form__paragraphIng{
+    font-weight: 300;
+}
+.form__linkIng{
+    font-weight: 400;
+    color: #d3e304;
+}
+.div__formIng{
+    margin-top: 1em;
+    display: grid;
+    gap: 2.5em;
+}
+.form__groupIng{
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-size: 1.2rem;
+}
+.form__inputIng{
+    width: 100%;
+    background: none;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 0.6em 0.3em;
+    border: none;
+    outline: none;
+    border-bottom: 0.01px solid #303030;
+}
+
+
+
+.form__labelIng{
+    color: #ffffff;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px); 
+    transform: tranform 0.5s, #d3e304 .3s;      
+}
+
+.form__lineIng{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d3e304;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform 0.4s;
+}
+.form__inputIng:focus ~ .form__line,
+.form__inputIng:not(:placeholder-shown) ~ .form__lineIng{
+    transform: scale(1.05);
+} 
+
+.form__submitIng{
+   
+    background-color: #d3e304;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.form__linkIng{
+    color: #f9f9f8;
+    text-decoration: none;
+}
+.form__linkIng:hover{
+    color: #d3e304;
+    transform: scale(1.1);
+}
+
+.section__formEg{
+    box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.formulario__tituloEg {
+    color: #ffffff;
+   font-size: 2rem;
+   margin-bottom: 0.5em;
+}
+.form__paragraphEg{
+    font-weight: 300;
+}
+.form__linkEg{
+    font-weight: 400;
+    color: #d3e304;
+}
+.div__formEg{
+    margin-top: 1em;
+    display: grid;
+    gap: 2.5em;
+}
+.form__groupEg{
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-size: 1.2rem;
+}
+.form__inputEg{
+    width: 100%;
+    background: none;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 0.6em 0.3em;
+    border: none;
+    outline: none;
+    border-bottom: 0.01px solid #303030;
+}
+
+
+
+.form__labelEg{
+    color: #ffffff;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px); 
+    transform: tranform 0.5s, #d3e304 .3s;      
+}
+
+.form__lineEg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d3e304;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform 0.4s;
+}
+.form__inputEg:focus ~ .form__line,
+.form__inputEg:not(:placeholder-shown) ~ .form__lineEg{
+    transform: scale(1.05);
+} 
+
+.form__submitEg{
+    background-color: #d3e304;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.form__linkEg{
+    color: #f9f9f8;
+    text-decoration: none;
+}
+.form__linkEg:hover{
+    color: #d3e304;
+    transform: scale(1.1);
+}
+
+
+
+
+
+.formularioOV {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1b1b1b;
+    padding: 20px;
+    width: 25rem;
+    max-width: 25rem;
+    height: 40rem;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+    text-align: center;
+}
+.formulario__tituloOV {
+    color: #ffffff;
+   font-size: 2rem;
+   margin-bottom: 0.5em;
+}
+.form__paragraphOV{
+    font-weight: 300;
+}
+.form__linkOV{
+    font-weight: 400;
+    color: #d3e304;
+}
+.div__formOV{
+    margin-top: 1em;
+    display: grid;
+    gap: 2.5em;
+}
+.form__groupOV{
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-size: 1.2rem;
+}
+.form__inputOV{
+    width: 100%;
+    background: none;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 0.6em 0.3em;
+    border: none;
+    outline: none;
+    border-bottom: 0.01px solid #303030;
+}
+
+
+
+.form__labelOV{
+    color: #ffffff;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px); 
+    transform: tranform 0.5s, #d3e304 .3s;      
+}
+
+.form__lineOV{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d3e304;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform 0.4s;
+}
+.form__inpuOVt:focus ~ .form__lineOV,
+.form__inputOV:not(:placeholder-shown) ~ .form__lineOV{
+    transform: scale(1.05);
+} 
+
+.form__submitOV{
+    background-color: #d3e304;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.form__linkOV{
+    color: #f9f9f8;
+    text-decoration: none;
+}
+.form__link:hoverOV{
+    color: #d3e304;
+    transform: scale(1.1);
 }
