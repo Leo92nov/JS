@@ -15,7 +15,7 @@ let cajaDePuntas = [
     cajaDePuntas = JSON.stringify(cajaDePuntas);
     localStorage.setItem("cajadepuntas", cajaDePuntas)
 
-const usuarios = [
+let usuarios = [
     {nombre: "Leonardo", nombreUsuario: "36765496", contraseña: "starplatinum", ahorrosPasados: 265000, numeroCcomitente: 54687879,  cedearsEnCartera:  [
         {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
         {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
@@ -62,30 +62,35 @@ const usuarios = [
         {id: 7, ticker: "TSLA", precio: 3000, cantidad: 5},]},
 ]
 
-const btnIngreso = document.getElementById("formulario");
+ let usuariosJ = JSON.stringify(usuarios);
+    localStorage.setItem("usuarios", usuariosJ)
+
+const btnIngreso = document.getElementById("btnIngreso");
 const inputUsuario = document.getElementById("name");
 const inputContraseña = document.getElementById("password");
 
 
-btnIngreso.addEventListener("submit", (e) => {
+
+btnIngreso.addEventListener("click", (e) => {
     e.preventDefault();
-    const inputUsuario = e.target[0].value
-    const inputContraseña = e.target[1].value
+    const inputUsuario = document.getElementById("name").value;
+    const inputContraseña = document.getElementById("password").value;
+
     function validarCredenciales(nombreUsuario, contraseña) {
         return usuarios.find((usuario) => usuario.nombreUsuario === nombreUsuario && usuario.contraseña === contraseña);
     } 
- const usuarioValidado = validarCredenciales(inputUsuario, inputContraseña);
 
- if (usuarioValidado) {
+    const usuarioValidado = validarCredenciales(inputUsuario, inputContraseña);
+
+    if (usuarioValidado) {
         let liquidezUsuario = usuarioValidado.ahorrosPasados;
         console.log(liquidezUsuario);
 
         const usuarioValidadoJson = JSON.stringify(usuarioValidado);
-        sessionStorage.setItem("iniciado", usuarioValidadoJson)
+        sessionStorage.setItem("iniciado", usuarioValidadoJson);
         console.log(usuarioValidado);
-        window.location.href = "http://127.0.0.1:5500/JavaScript/pages/Inicio.html";
+        window.location.href = "http://127.0.0.1:5500/JavaScript/pages/inicio.html";
     } else {
         alert("Contraseña o usuario incorrectos");
     } 
 });
-
