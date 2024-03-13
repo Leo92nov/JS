@@ -47,9 +47,18 @@ cedearsEnCartera.forEach(cedear => {
     
    
     venderCed.addEventListener("click", function() {
-        cedear.ticker
+        console.log("Vendiendo CEDEAR:", cedear);
+        let cedeart = JSON.stringify(cedear);
+        localStorage.setItem("Orden de venta", cedeart)
         window.open("http://127.0.0.1:5500/JavaScript/pages/oredendeventa.html", "VentaCEDEAR", "width=800,height=600");
     });
+
+    comprarCed.addEventListener("click", function() {
+        console.log("Comprando CEDEAR:", cedear);
+        let cedeart = JSON.stringify(cedear);
+        localStorage.setItem("Orden de compra", cedeart)
+        window.open("http://127.0.0.1:5500/JavaScript/pages/ordencompra.html", "CompraCedear", "width=800,height=600");
+    });  
 
     contenedorCedears.appendChild(nombreTicker);
     contenedorCedears.appendChild(precio);
@@ -59,4 +68,4 @@ cedearsEnCartera.forEach(cedear => {
     contenedorCedears.appendChild(cedearElemento);
 });
 
-console.log("Vendiendo CEDEAR:", cedear.ticker);
+
