@@ -1,5 +1,20 @@
 let ingresoUsuario;
 let ingresoPassword;
+let cajaDePuntas = [
+    {pozo: 500000},
+    {id: 1, ticker: "KO", precio: 1500, cantidad: 5000},
+    {id: 2, ticker:"PFE", precio: 1800, cantidad: 5000},
+    {id: 3, ticker: "AAPL", precio: 2000, cantidad: 5000},
+    {id: 4, ticker: "MSFT", precio: 2000, cantidad: 5000},
+    {id: 5, ticker: "AMZN", precio: 2500, cantidad: 5000},
+    {id: 6, ticker: "META", precio: 2000, cantidad: 5000},
+    {id: 7, ticker: "TSLA", precio: 3000, cantidad: 5000},
+    
+    ]
+
+    cajaDePuntas = JSON.stringify(cajaDePuntas);
+    localStorage.setItem("cajadepuntas", cajaDePuntas)
+
 const usuarios = [
     {nombre: "Leonardo", nombreUsuario: "36765496", contraseña: "starplatinum", ahorrosPasados: 265000, numeroCcomitente: 54687879,  cedearsEnCartera:  [
         {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
@@ -62,12 +77,11 @@ btnIngreso.addEventListener("submit", (e) => {
  const usuarioValidado = validarCredenciales(inputUsuario, inputContraseña);
 
  if (usuarioValidado) {
-        alert("Bienvenido, " + usuarioValidado.nombre);
         let liquidezUsuario = usuarioValidado.ahorrosPasados;
         console.log(liquidezUsuario);
 
         const usuarioValidadoJson = JSON.stringify(usuarioValidado);
-        localStorage.setItem("iniciado", usuarioValidadoJson)
+        sessionStorage.setItem("iniciado", usuarioValidadoJson)
         console.log(usuarioValidado);
         window.location.href = "http://127.0.0.1:5500/JavaScript/pages/Inicio.html";
     } else {

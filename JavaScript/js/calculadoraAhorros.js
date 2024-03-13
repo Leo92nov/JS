@@ -1,5 +1,5 @@
 
-usuarioLoggeado =JSON.parse(localStorage.getItem("iniciado"))
+usuarioLoggeado =JSON.parse(sessionStorage.getItem("iniciado"))
 
 
 ahorrosPasados = usuarioLoggeado.ahorrosPasados

@@ -1,6 +1,6 @@
 let usuarioLoggeado = JSON.parse(localStorage.getItem("iniciado"));
 const cedeart = JSON.parse(localStorage.getItem("Orden de venta"));
-console.log(cedeart);
+const cajaDePuntas = JSON.parse(localStorage.getItem("cajadepuntas"));
 
 const comitente = document.getElementById("comitente");
 const cedearComprar = document.getElementById("cedearComprar");
@@ -23,12 +23,27 @@ btnCompraCP.addEventListener("click", function enviarOrdenV() {
         usuarioLoggeado.cedearsEnCartera.forEach(function(cedear) {
             if (cedear.ticker === cedeart.ticker) {
                 cedear.cantidad += cantidadCedear;
+
                 return; 
             }
         });
         
         usuarioLoggeado.ahorrosPasados -= importeTotal;
-        console.log(usuarioLoggeado.ahorrosPasados);
+        let pozoV = cajaDePuntas[0].pozo;
+        
+        let luzu = importeTotal + pozoV;
+        
+        if (cedeart.ticker === cajaDePuntas[0].ticker) {
+            cajaDePuntas[0].cantidad = cantidadCedear;
+            
+            
+            pozoV += importeTotal;
+            cajaDePuntas[0].pozo = pozoV; 
+        }
+
+        
+        localStorage.setItem("cajadepuntas", JSON.stringify(cajaDePuntas));
+
     } else {
         alert("La compra no se puede realizar. El importe total es mayor a la cantidad en ahorros pasados.");
     }

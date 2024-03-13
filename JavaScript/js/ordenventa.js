@@ -1,6 +1,6 @@
 let usuarioLoggeado = JSON.parse(localStorage.getItem("iniciado"));
 const cedeart = JSON.parse(localStorage.getItem("Orden de venta"))
-console.log(cedeart);
+const cajaDePuntas = JSON.parse(localStorage.getItem("cajadepuntas"));
 
 const comitente = document.getElementById("comitente");
 const cedearVender = document.getElementById("cedearVender");
@@ -11,7 +11,7 @@ const btnVentaOV = document.getElementById("btnVentaOV");
 
 
 comitente.value = usuarioLoggeado.numeroCcomitente;
-console.log(usuarioLoggeado.numeroCcomitente);
+
 cedearVender.value = cedeart.ticker
 
 cantidadOV.value = cedeart.cantidad
@@ -36,9 +36,8 @@ btnVentaOV.addEventListener("click", function enviarOrdenV() {
         
         usuarioLoggeado.ahorrosPasados += importeTotal;
         
-        console.log(usuarioLoggeado.ahorrosPasados);
     } else {
         alert("La venta no se puede realizar. La cantidad ingresada es mayor a la cantidad en la cartera.");
     }
-    console.log(usuarioLoggeado);
+
 });
