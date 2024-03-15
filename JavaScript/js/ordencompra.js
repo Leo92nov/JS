@@ -1,51 +1,65 @@
-let usuarioLoggeado = JSON.parse(localStorage.getItem("iniciado"));
-const cedeart = JSON.parse(localStorage.getItem("Orden de venta"));
+let usuarioLoggeado = JSON.parse(sessionStorage.getItem("iniciado"));
+const cedearJSON = JSON.parse(localStorage.getItem("cajadepuntas"));
 const cajaDePuntas = JSON.parse(localStorage.getItem("cajadepuntas"));
 
-const comitente = document.getElementById("comitente");
-const cedearComprar = document.getElementById("cedearComprar");
-const cantidadCP = document.getElementById("cantidadCP");
-const precioCP = document.getElementById("precioCP");
-const importeTotalCP = document.getElementById("importeTotalCP");
-const btnCompraCP = document.getElementById("btnCompraCP");
+const comitente = document.getElementById("comitente").value;
+let cedearComprar = document.getElementById("cedearComprar").value;
+const cantidadCPInput = document.getElementById("cantidadCP");
+let precioCPInput = document.getElementById("precioCP");
+let importeTotalCP = document.getElementById("importeTotalCP");
+
+function actualizarImporteTotal() {
+    const cantidadCP = parseInt(cantidadCPInput.value) || 0;
+    const precioCP = parseInt(precioCPInput.value) || 0;
+    
+    const importeTotal = cantidadCP * precioCP;
+    
+    importeTotalCP.value = importeTotal;
+    
+}
+
+cantidadCPInput.addEventListener("keyup", actualizarImporteTotal);
+precioCPInput.addEventListener("keyup", actualizarImporteTotal);
+
+
+
+
+
+
+
+cedearDeUsuario = usuarioLoggeado.cedearsEnCartera
 
 comitente.value = usuarioLoggeado.numeroCcomitente;
-cedearComprar.value = cedeart.ticker;
-cantidadCP.value = cedeart.cantidad;
-precioCP.value = cedeart.precio;
-importeTotalCP.value = precioCP.value * cantidadCP.value;
+cedearTickerAComprar = cedearJSON.ticker;
+compraCantidadCED = parseInt(cedearJSON.cantidad);
+precioCompra = cedearJSON.precio;
+
+let pozoCP = parseFloat(cajaDePuntas[0].pozo);
 
 btnCompraCP.addEventListener("click", function enviarOrdenV() {
-    const cantidadCedear = parseFloat(cantidadCP.value);
-    const importeTotal = parseFloat(importeTotalCP.value);
-
-    if ((cedeart.precio * cantidadCedear) <= usuarioLoggeado.ahorrosPasados) {
-        usuarioLoggeado.cedearsEnCartera.forEach(function(cedear) {
-            if (cedear.ticker === cedeart.ticker) {
-                cedear.cantidad += cantidadCedear;
-
+    if ((precioCPInput.value * cantidadCPInput.value) <= usuarioLoggeado.ahorrosPasados) {
+        usuarioLoggeado.cedearsEnCartera.forEach(function(cedearDeUsuario) {
+            if (cedearDeUsuario.ticker === cedearTickerAComprar) {
+                cedearDeUsuario.cantidad += compraCantidadCED;
                 return; 
             }
         });
         
-        usuarioLoggeado.ahorrosPasados -= importeTotal;
-        let pozoV = cajaDePuntas[0].pozo;
+        usuarioLoggeado.ahorrosPasados -= importeTotalCP.value;
         
-        let luzu = importeTotal + pozoV;
-        
-        if (cedeart.ticker === cajaDePuntas[0].ticker) {
-            cajaDePuntas[0].cantidad = cantidadCedear;
+        if (cedearJSON.ticker === cajaDePuntas.ticker) {
+            let pozoV = parseFloat(importeTotalCP.value) + pozoCP;
+            pozoCP = pozoV;
+
             
-            
-            pozoV += importeTotal;
-            cajaDePuntas[0].pozo = pozoV; 
+            cajaDePuntas[0].pozo = pozoCP;
         }
 
-        
+       
         localStorage.setItem("cajadepuntas", JSON.stringify(cajaDePuntas));
-
+        console.log(JSON.parse(localStorage.getItem("cajadepuntas")));
+        console.log(usuarioLoggeado);
     } else {
         alert("La compra no se puede realizar. El importe total es mayor a la cantidad en ahorros pasados.");
     }
-    console.log(usuarioLoggeado);
 });
