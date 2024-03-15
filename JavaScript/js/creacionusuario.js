@@ -1,8 +1,8 @@
 let usuarioJ = JSON.parse(localStorage.getItem("usuarios"));
 
-
+const NOMBRE = document.getElementById("nombreUsuarioN")
 const MAIL = document.getElementById("mailUsuarioN");
-const USER = document.getElementById("nameUsuarioN");
+const USER = document.getElementById("userN");
 const PASS = document.getElementById("passwordUsuarioN");
 const BTNUSUARION = document.getElementById("btnCrear");
 const USUARIONUEVO = [];
@@ -24,5 +24,6 @@ BTNUSUARION.addEventListener("click", function() {
     console.log(USUARIONUEVO);
     localStorage.setItem("singUp", JSON.stringify(USUARIONUEVO));
     usuarioJ.push(nuevoUsuario)
+
  console.log(usuarioJ);
 });

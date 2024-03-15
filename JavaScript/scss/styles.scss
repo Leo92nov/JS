@@ -23,7 +23,7 @@
         height: 4rem;
         width: 100%;
         text-decoration: none;
-        z-index: 1;
+        z-index: 2;
         .navbar{
             width: 100%;
             margin: 0;
@@ -41,7 +41,7 @@
                 color: #f9f9f8 ;
                 @include flex(flex, row, wrap, space-between, center);
                 :hover{
-                    color: #d3e304;
+                    color: #485aa4;
                     transform: scale(1.1);
                 }
            
@@ -73,7 +73,7 @@
         max-width: 18rem;
         height: 28rem;
         border-radius: 10px;
-        box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+        box-shadow: 0px 10px 10px 1px rgb(35, 44, 172);
         text-align: center;
     }
     .formulario__titulo {
@@ -118,7 +118,7 @@
         top: 0;
         left: 5px;
         transform: translateY(10px); 
-        transform: tranform 0.5s, #d3e304 .3s;      
+        transform: tranform 0.5s, #1f7ab4 .3s;      
     }
 
     .form__line{
@@ -127,7 +127,7 @@
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: #d3e304;
+        background-color: #1f7ab4;
         transform: scale(0);
         transform: left bottom;
         transition: transform 0.4s;
@@ -138,9 +138,12 @@
     } 
 
     .form__submit{
-        background-color: #d3e304;
+        background-color: #1f7ab4;
         color: #000000;
         font-size: 1.2rem;
+        width: 8rem;
+        border-radius: 8px;
+        margin-left: 5rem;
     }
 
     .form__link{
@@ -148,7 +151,7 @@
         text-decoration: none;
     }
     .form__link:hover{
-        color: #d3e304;
+        color: #4d63bd;
         transform: scale(1.1);
     }
 
@@ -226,7 +229,7 @@
         max-width: 40rem;
         height: 46rem;
         border-radius: 12px;
-        box-shadow: 0px 10px 10px 1px rgba(211, 227, 4, 0.5);
+        box-shadow: 0px 10px 10px 1px rgb(33,150,243);
         text-align: center;
       }
       
@@ -242,7 +245,7 @@
       
       .form__linkCalculadora {
         font-weight: 400;
-        color: #d3e304;
+        color: #1f7ab4;
       }
       
       .div__form {
@@ -293,7 +296,7 @@
         top: 0;
         left: 5px;
         transform: translateY(10px);
-        transform: tranform 0.5s, #d3e304 0.3s;
+        transform: tranform 0.5s, #1f7ab4 0.3s;
       }
       
       .form__lineCalculadora {
@@ -302,7 +305,7 @@
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: #d3e304;
+        background-color: #1f7ab4;
     
         transform: left bottom;
         transition: transform 0.4s;
@@ -314,18 +317,22 @@
       }
     
       .form__submitCalcularSN {
-        background-color: #d3e304;
+        background-color: #2453fc;
+        width: 6rem;
         color: #000000;
         font-size: 1.2rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
+        border-radius: 8px;
       }
     
       .form__submitCalculadora {
-        background-color: #d3e304;
+        background-color: #2453fc;
         color: #000000;
         font-size: 1.2rem;
         margin-top: 0.8rem;
+        width: 6rem;
+        border-radius: 8px;
 
       }
       
@@ -343,7 +350,7 @@
         position: relative;
            color: #000000;
            margin-bottom: 4px;
-           font-size: 1.2rem;
+           font-size: 10.2rem;
            text-align: center;
            background-color: #d3e304;
        }
@@ -375,7 +382,7 @@
 
 .link__fondeo:hover {
     transform: scale(1.3);
-    color: #d3e304;
+    color: #2b7fc9;
     
 }
 .text__fondeo{
@@ -392,7 +399,7 @@
     border-radius: 15px;
     position: relative;
     top: 8rem;
-    box-shadow: 0px 10px 10px 5px rgb(211 227 4 / 50%);
+    box-shadow: 0px 10px 10px 5px rgb(33 150 243 / 50%);
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -409,25 +416,27 @@
 
     .span__liquidez{
         font-size: 1.5rem;
-        color: #d3e304;
+        color: #2453fc;
         margin-bottom: 1rem;
     }
     .span__comitente{
         font-size: 1.5rem;
-        color: #d3e304;
+        color: #2453fc;
         margin-bottom: 1rem;
     }
     .span__invertido {
         font-size: 1.5rem;
-        color: #d3e304;
+        color: #2453fc;
         margin-bottom: 1rem;
     }
 
 }
 .boton__ahorros{
-    background-color: #d3e304;
+    background-color: #2453fc;
     color: #000000;
     font-size: 1.2rem;
+    width: 6rem;
+    border-radius: 8px;
 }
 
 
@@ -444,7 +453,7 @@
     border-radius: 15px;
     position: relative;
     top: 11rem;
-    box-shadow: 2px 10px 12px 10px rgba(211, 227, 4, 0.5);
+    box-shadow: 2px 10px 12px 10px rgb(33 150 243 / 50%);
     padding: 1rem;
     height: auto;
 }  
@@ -528,8 +537,12 @@
 }
 .bodicrearusuario {
     background-image: url(../assets/img/bearsvsbulls.jpeg);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
+    height: 60rem;
 }
 
 .ingresoEgreso__form {
@@ -550,7 +563,7 @@
 }
 
 .section__formIng{
-    box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+    box-shadow: 0px 10px 10px 1px rgb(33 150 243 / 50%);
     text-align: center; 
     border-radius: 10px;
     width: 20rem;
@@ -566,7 +579,7 @@
 }
 .form__linkIng{
     font-weight: 400;
-    color: #d3e304;
+    color: #c9cc9a;
 }
 .div__formIng{
     margin-top: 1em;
@@ -634,9 +647,16 @@
 }
 
 .section__formEg{
-    box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+    box-shadow: 0px 10px 10px 1px rgb(33 150 243 / 50%);
     text-align: center;
     border-radius: 10px;
+}
+
+.formularioEg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .formulario__tituloEg {
@@ -652,22 +672,29 @@
     color: #d3e304;
 }
 .div__formEg{
+    margin-left: 1rem;
+    margin-right: 1rem;
     margin-top: 1em;
-    display: grid;
-    gap: 2.5em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
 }
 .form__groupEg{
     position: relative;
     color: #ffffff;
     margin-bottom: 4px;
     font-size: 1.2rem;
+    margin-top: 2rem;
 }
 .form__inputEg{
     width: 100%;
     background: none;
     color: #ffffff;
     font-size: 0.8rem;
-    padding: 0.6em 0.3em;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border: none;
     outline: none;
     border-bottom: 0.01px solid #303030;
@@ -681,7 +708,7 @@
     top: 0;
     left: 5px;
     transform: translateY(10px); 
-    transform: tranform 0.5s, #d3e304 .3s;      
+    transform: tranform 0.5s, #1f7ab4 .3s;      
 }
 
 .form__lineEg{
@@ -690,20 +717,23 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #d3e304;
+    background-color: #1f7ab4;
     transform: scale(0);
     transform: left bottom;
     transition: transform 0.4s;
 }
 .form__inputEg:focus ~ .form__line,
 .form__inputEg:not(:placeholder-shown) ~ .form__lineEg{
-    transform: scale(1.05);
+    transform: scale(0.95);
 } 
 
 .form__submitEg{
-    background-color: #d3e304;
+    background-color: #2453fc;
     color: #000000;
     font-size: 1.2rem;
+    width: 6rem;
+    margin-top: 1.5rem;
+    
 }
 
 .form__linkEg{
@@ -903,3 +933,18 @@
     color: #d3e304;
     transform: scale(1.1);
 }
+
+.formularioNU {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1b1b1b;
+        padding: 20px;
+        width: 20rem;
+        max-width: 18rem;
+        height: 32rem;
+        border-radius: 10px;
+        box-shadow: 0px 10px 10px 1px rgb(211 227 4 / 50%);
+        text-align: center;
+    }

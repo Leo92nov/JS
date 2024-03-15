@@ -5,6 +5,7 @@ const liqEg = document.getElementById("liqEg");
 const passwordEg = document.getElementById("passwordEg");
 const contraseña = JSON.parse(sessionStorage.getItem("iniciado")).contraseña;
 
+
 btnLiqMax.addEventListener("click", function liquidezMaxima() {
     const ahorrosPasados = JSON.parse(sessionStorage.getItem("iniciado")).ahorrosPasados;
     liqEg.value = ahorrosPasados;

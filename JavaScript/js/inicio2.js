@@ -1,12 +1,12 @@
-let usuarioLoggeado = JSON.parse(localStorage.getItem("iniciado"))
+let usuarioLoggeado = JSON.parse(sessionStorage.getItem("iniciado"))
 const liquido = document.getElementById("liquidezEnCuenta")
-liquido.textContent = JSON.parse(localStorage.getItem("iniciado")).ahorrosPasados;
-const usuarioJSON = JSON.parse(localStorage.getItem("iniciado"))
+liquido.textContent = JSON.parse(sessionStorage.getItem("iniciado")).ahorrosPasados;
+const usuarioJSON = JSON.parse(sessionStorage.getItem("iniciado"))
 console.log(usuarioJSON);
 console.log(liquido);
 
 const numero__comitente = document.getElementById("numero__comitente");
-numero__comitente.textContent = JSON.parse(localStorage.getItem("iniciado")).numeroCcomitente;
+numero__comitente.textContent = JSON.parse(sessionStorage.getItem("iniciado")).numeroCcomitente;
 
 let sumaInversion =0;
 usuarioLoggeado.cedearsEnCartera.forEach(cedear => {

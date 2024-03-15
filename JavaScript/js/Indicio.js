@@ -63,7 +63,7 @@ let usuarios = [
 ]
 
  let usuariosJ = JSON.stringify(usuarios);
-    localStorage.setItem("usuarios", usuariosJ)
+    localStorage.setItem("suarios", usuariosJ)
 
 const btnIngreso = document.getElementById("btnIngreso");
 const inputUsuario = document.getElementById("name");
