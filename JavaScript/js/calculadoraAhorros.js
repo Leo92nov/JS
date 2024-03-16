@@ -65,7 +65,10 @@ btnInver.addEventListener("click", function() {
     const porcentajeInversion = document.getElementById("porcentaje").value;
     const porcentajeValor = parseFloat(porcentajeInversion);
    
-    const inversionCalculada = porcentuar(resultadoNeto, porcentajeValor);
+    let inversionCalculada = porcentuar(resultadoNeto, porcentajeValor);
     
     inversion.value = inversionCalculada.toFixed(2); 
+
+    let inversionCalculaa = JSON.stringify(inversionCalculada);
+        sessionStorage.setItem("Inversion", inversionCalculaa);
 });

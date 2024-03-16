@@ -1,9 +1,11 @@
 const usuarioLoggeado = JSON.parse(sessionStorage.getItem("iniciado"));
 const btnLiqMax = document.getElementById("btnLiqMax");
 const btnEnviar = document.getElementById("btnEgreso");
-const liqEg = document.getElementById("liqEg");
+let liqEg = document.getElementById("liqEg");
 const passwordEg = document.getElementById("passwordEg");
 const contraseña = JSON.parse(sessionStorage.getItem("iniciado")).contraseña;
+
+liqEg.value = JSON.parse(sessionStorage.getItem("Inversion"));
 
 
 btnLiqMax.addEventListener("click", function liquidezMaxima() {
