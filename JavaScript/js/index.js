@@ -89,8 +89,8 @@ btnIngreso.addEventListener("click", (e) => {
         const usuarioValidadoJson = JSON.stringify(usuarioValidado);
         sessionStorage.setItem("iniciado", usuarioValidadoJson);
         console.log(usuarioValidado);
-        window.location.href = "http://127.0.0.1:5500/JavaScript/pages/inicio.html";
+        location.href = "./pages/inicio.html"
     } else {
-        alert("Contraseña o usuario incorrectos");
+        document.getElementById("mensajeUsuario").textContent = "Usuario o contraseña incorrecto";
     } 
 });
