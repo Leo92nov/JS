@@ -1,9 +1,17 @@
 let usuarioLoggeado = JSON.parse(sessionStorage.getItem("iniciado"));
+
+const {ahorrosPasados, numeroCcomitente, cedearsEnCartera} = usuarioLoggeado
+
 const cedearJSON = JSON.parse(localStorage.getItem("cajadepuntas"));
+cedearTickerAComprar = cedearJSON.ticker;
+
+
 const cajaDePuntas = JSON.parse(localStorage.getItem("cajadepuntas"));
 
-const comitente = document.getElementById("comitente").value;
-let cedearComprar = document.getElementById("cedearComprar").value;
+const comitente = document.getElementById("comitente");
+comitente.value = numeroCcomitente
+let cedearComprar = document.getElementById("cedearComprar");
+
 const cantidadCPInput = document.getElementById("cantidadCP");
 let precioCPInput = document.getElementById("precioCP");
 let importeTotalCP = document.getElementById("importeTotalCP");
@@ -22,15 +30,9 @@ cantidadCPInput.addEventListener("keyup", actualizarImporteTotal);
 precioCPInput.addEventListener("keyup", actualizarImporteTotal);
 
 
+cedearDeUsuario = cedearsEnCartera
 
 
-
-
-
-cedearDeUsuario = usuarioLoggeado.cedearsEnCartera
-
-comitente.value = usuarioLoggeado.numeroCcomitente;
-cedearTickerAComprar = cedearJSON.ticker;
 compraCantidadCED = parseInt(cedearJSON.cantidad);
 precioCompra = cedearJSON.precio;
 

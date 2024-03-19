@@ -1,4 +1,7 @@
-let usuarioLoggeado = JSON.parse(localStorage.getItem("iniciado"));
+let usuarioLoggeado = JSON.parse(sessionStorage.getItem("iniciado"));
+const {cedearsEnCartera, ahorrosPasados, numeroCcomitente} = usuarioLoggeado
+
+
 const cedeart = JSON.parse(localStorage.getItem("Orden de venta"))
 const cajaDePuntas = JSON.parse(localStorage.getItem("cajadepuntas"));
 
@@ -9,35 +12,43 @@ const precioOV = document.getElementById("precioOV");
 const importeTotalOV = document.getElementById("importeTotalOV");
 const btnVentaOV = document.getElementById("btnVentaOV");
 
+const {ticker, cantidad, precio} = cedeart
 
-comitente.value = usuarioLoggeado.numeroCcomitente;
+comitente.value = numeroCcomitente;
 
-cedearVender.value = cedeart.ticker
+cedearVender.value = ticker
 
-cantidadOV.value = cedeart.cantidad
-precioOV.value = cedeart.precio
+cantidadOV.value = cantidad
+precioOV.value = precio
 importeTotalOV.value = precioOV.value * cantidadOV.value
 
+OrdenVentaCaja = {}
 
 btnVentaOV.addEventListener("click", function enviarOrdenV() {
     const cantidadCedear = parseFloat(cantidadOV.value);
     const importeTotal = parseFloat(importeTotalOV.value);
 
-    if (cantidadCedear <= cedeart.cantidad) {
+    if (cantidadCedear <= cantidad) {
        
         usuarioLoggeado.cedearsEnCartera.forEach(function(cedear) {
-            if (cedear.ticker === cedeart.ticker) {
+            if (usuarioLoggeado.cedearsEnCartera.cantidad < 0) {
+                alert("No es posible realizar operacion")
                 
-                cedear.cantidad -= cantidadCedear;
-                return; 
             }
         });
-        
-        
-        usuarioLoggeado.ahorrosPasados += importeTotal;
-        
+        let ordenVentaCaja = {
+            ticker: ticker,
+            cantidad: cantidad,
+            precio: precio,
+            numeroComitente: numeroCcomitente 
+        };
+        console.log(ordenVentaCaja);
+        ordenVentaCaja = JSON.stringify(ordenVentaCaja);
+        localStorage.setItem("ordenVenta", ordenVentaCaja)
+        window.location.href = "./inicio.html"
     } else {
-        alert("La venta no se puede realizar. La cantidad ingresada es mayor a la cantidad en la cartera.");
+        alert("La orden de venta no se puede realizar. La cantidad ingresada es mayor a la cantidad en la cartera.");
     }
 
 });
+
