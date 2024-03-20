@@ -1,4 +1,87 @@
-function encontrarCedear(arr, nombre) {
+let cajadepuntas = JSON.parse(localStorage.getItem("cajadepuntas"))
+console.log(cajadepuntas);
+const {ticker, precio, cantidad} = cajadepuntas
+
+
+cajadepuntas.forEach(activo => {
+    if (activo.ticker) {
+        const cedearElemento = document.createElement("div");
+        
+
+        const nombreTicker = document.createElement("p");
+        nombreTicker.textContent = `Ticker: ${activo.ticker}`;
+        cedearElemento.classList.add("cedearscj");
+
+        const precioElemento = document.createElement("p");
+        precioElemento.textContent = `Precio: ${activo.precio}`;
+        cedearElemento.classList.add("cedearscj");
+
+        const cantidadElemento = document.createElement("p");
+        cantidadElemento.textContent = `Cantidad: ${activo.cantidad}`;
+        cedearElemento.classList.add("cedearscj");
+
+        const comprarCed = document.createElement("button");
+        comprarCed.textContent = "Comprar";
+        comprarCed.classList.add("btnCompraCed");
+
+        const venderCed = document.createElement("button");
+        venderCed.textContent = "Vender";
+        venderCed.classList.add("btnVentaCed");
+
+        venderCed.addEventListener("click", function() {
+            let cedeart = JSON.stringify(activo);
+            localStorage.setItem("Orden de venta", cedeart);
+            window.location.href = "http://127.0.0.1:5500/JavaScript/pages/oredendeventa.html";
+        });
+
+        comprarCed.addEventListener("click", function() {
+            let cedeart = JSON.stringify(activo);
+            localStorage.setItem("Orden de compra", cedeart);
+            window.open("http://127.0.0.1:5500/JavaScript/pages/ordencompra.html", "CompraCedear", "width=800,height=600");
+        });
+
+        
+        cedearElemento.appendChild(nombreTicker);
+        cedearElemento.appendChild(precioElemento);
+        cedearElemento.appendChild(cantidadElemento);
+        cedearElemento.appendChild(comprarCed);
+        cedearElemento.appendChild(venderCed);
+
+       
+        document.querySelector(".cedearsList").appendChild(cedearElemento);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function encontrarCedear(arr, nombre) {
     return arr.find((el) => el.ticker.includes(nombre));
 }
 const encontrado = encontrarCedear(cajaDePuntas, prompt("ingrese el nombre del ticker que desea obtener").toUpperCase())
@@ -84,4 +167,4 @@ console.log(cedearsEnCartera);
 console.log(cajaDePuntas);
 } else {
 alert("El cedear que deseas vender no está en tu cartera.");
-}
+} */

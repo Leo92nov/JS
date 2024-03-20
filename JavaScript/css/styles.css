@@ -997,4 +997,29 @@
   justify-content: space-between;
 }
 
+.cedearsList {
+  overflow-y: hidden;
+  width: calc(100% - 4rem);
+  left: 1rem;
+  overflow-x: hidden;
+  color: #ffffff;
+  border-radius: 15px;
+  position: relative;
+  top: 11rem;
+  box-shadow: 2px 10px 12px 10px rgba(33, 150, 243, 0.5);
+  padding: 1rem;
+  height: auto;
+}
+
+.cedearscj {
+  margin-top: 1.5rem;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin-left: -20rem;
+  background-color: #303030;
+}
+
 /*# sourceMappingURL=styles.css.map */

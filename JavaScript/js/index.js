@@ -8,8 +8,20 @@ let cajaDePuntas = [
     {id: 4, ticker: "MSFT", precio: 2000, cantidad: 5000},
     {id: 5, ticker: "AMZN", precio: 2500, cantidad: 5000},
     {id: 6, ticker: "META", precio: 2000, cantidad: 5000},
-    {id: 7, ticker: "TSLA", precio: 3000, cantidad: 5000},
-    
+    {id: 8, ticker: "LMT", precio: 8000, cantidad: 5000},
+    {id: 9, ticker: "V", precio: 3800, cantidad: 5000},
+    {id: 10, ticker: "PBR", precio: 5000, cantidad: 5000},
+    {id: 11, ticker: "PYPL", precio: 2500, cantidad: 5000},
+    {id: 12, ticker: "CVX", precio: 4000, cantidad: 5000},
+    {id: 13, ticker: "HSY", precio: 4500, cantidad: 5000},
+    {id: 14, ticker: "MCD", precio: 2000, cantidad: 5000},
+    {id: 16, ticker: "MO", precio: 2600, cantidad: 5000},
+    {id: 17, ticker: "JNJ", precio: 3600, cantidad: 5000},
+    {id: 18, ticker: "PEP", precio: 5600, cantidad: 5000},
+    {id: 19, ticker: "O", precio: 8600, cantidad: 5000},
+    {id: 20, ticker: "CAT", precio: 7600, cantidad: 5000},
+    {id: 21, ticker: "COST", precio: 2600, cantidad: 5000},
+    {id: 22, ticker: "SBUX", precio: 2950, cantidad: 5000},
     ]
 
     cajaDePuntas = JSON.stringify(cajaDePuntas);
