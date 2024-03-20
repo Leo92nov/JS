@@ -5,7 +5,6 @@ const MAIL = document.getElementById("mailUsuarioN");
 const USER = document.getElementById("userN");
 const PASS = document.getElementById("passwordUsuarioN");
 const BTNUSUARION = document.getElementById("btnCrear");
-const USUARIONUEVO = [];
 
 function crearUser(mail, user, pass) {
     this.mail = mail;
@@ -20,10 +19,8 @@ BTNUSUARION.addEventListener("click", function() {
     const passValue = PASS.value;
 
     const nuevoUsuario = new crearUser(mailValue, userValue, passValue);
-
-    console.log(USUARIONUEVO);
-    localStorage.setItem("singUp", JSON.stringify(USUARIONUEVO));
-    usuarioJ.push(nuevoUsuario)
-
+ console.log(nuevoUsuario);
+    localStorage.setItem("singUp", JSON.stringify(nuevoUsuario));
+    location.href = "../index.html"
  console.log(usuarioJ);
 });
