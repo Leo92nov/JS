@@ -17,7 +17,6 @@ BTNUSUARION.addEventListener("click", function() {
     const mailValue = MAIL.value;
     const userValue = USER.value;
     const passValue = PASS.value;
-
     const nuevoUsuario = new crearUser(mailValue, userValue, passValue);
  console.log(nuevoUsuario);
     localStorage.setItem("singUp", JSON.stringify(nuevoUsuario));
