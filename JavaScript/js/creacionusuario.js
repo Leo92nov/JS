@@ -1,3 +1,5 @@
+usuarios = JSON.parse(localStorage.getItem("suarios"))
+
 let usuarioJ = JSON.parse(localStorage.getItem("usuarios"));
 
 const NOMBRE = document.getElementById("nombreUsuarioN")
@@ -19,7 +21,9 @@ BTNUSUARION.addEventListener("click", function() {
     const passValue = PASS.value;
     const nuevoUsuario = new crearUser(mailValue, userValue, passValue);
  console.log(nuevoUsuario);
-    localStorage.setItem("singUp", JSON.stringify(nuevoUsuario));
-    location.href = "../index.html"
+ usuarios.push(nuevoUsuario)
+
+    localStorage.setItem("suarios", JSON.stringify(usuarios));
+    /* location.href = "../index.html" */
  console.log(usuarioJ);
 });
