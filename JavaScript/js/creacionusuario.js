@@ -24,6 +24,6 @@ BTNUSUARION.addEventListener("click", function() {
  usuarios.push(nuevoUsuario)
 
     localStorage.setItem("suarios", JSON.stringify(usuarios));
-    /* location.href = "../index.html" */
- console.log(usuarioJ);
+    alert("la creacion de usuario fue exitosa")
+    location.href = "../index.html"
 });
