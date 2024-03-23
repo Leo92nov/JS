@@ -1,0 +1,39 @@
+.bodyi{
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%
+
+}
+
+.headertitle{
+    display: flex;
+    width: 100%;
+
+    .logo{
+        width: 9rem;
+        height: 6rem;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .nav{
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        .navlist{
+            width: 100%;
+            display: flex;
+            margin-left: auto;
+            justify-content: flex-end;
+            list-style: none;
+          
+            .navitem{
+                padding: 0 2rem 0 18rem;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@import "./partials/mixins";
+@font-face {
+    font-family: Metamorphous;
+    src: url(/HouseOfTheCode/Fonts/Metamorphous.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    height: 100vh;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../imgs/fondo.jpg\ \(2\).jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    position: relative;
+}
+.header{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 5rem;
+    width: 100%;
+    .navbar{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 5rem;
+        
+        .nav_links{
+            list-style: none;
+            font-family: Metamorphous;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: 1rem;
+            color: rgb(146, 146, 146);
+            @include flex(flex, row, wrap, space-between, center)
+            
+        }
+        .logo{
+            margin-left: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            height: 5rem; 
+        }
+    }
+    
+}
