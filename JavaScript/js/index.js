@@ -40,6 +40,7 @@ if (usuarios === null) {
             {id: 6, ticker: "META", precio: 2000, cantidad: 31},
             {id: 7, ticker: "TSLA", precio: 3000, cantidad: 15},
         ] },
+        
         {nombre: "Leonidas", nombreUsuario: "papitomirey", contraseña: "xerxes", ahorrosPasados: 2650000, numeroCcomitente: 54687880, cedearsEnCartera: [
             {id: 1, ticker: "KO", precio: 2000, cantidad: 12},
             {id: 2, ticker:"PFE", precio: 1800, cantidad: 18},
